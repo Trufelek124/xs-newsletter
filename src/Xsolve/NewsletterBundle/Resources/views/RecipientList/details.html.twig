@@ -1,0 +1,40 @@
+
+{% extends 'XsolveNewsletterBundle::layout.html.twig' %}
+
+{% block content %}
+
+<h3>Szczegóły listy odbiorców "{{ list.name }}":</h3>
+
+<p class="btn-group">
+    <a href="{{ path('xsolve_newsletter_recipient_new', { 'listId': list.id }) }}" class="btn">
+        <i class="icon-plus-sign"></i> Dodaj odbiorcę do tej listy
+    </a>
+    <a href="{{ path('xsolve_newsletter_list_index') }}" class="btn">
+        <i class="icon-circle-arrow-left"></i> Wróć do podsumowania
+    </a>
+</p>
+
+{% if list.recipients|length > 0 %}
+
+<table class="table table-condensed table-bordered table-striped">
+    <thead>
+        <th>#</th>
+        <th>Adres e-mail:</th>
+        <th>Aktywny:</th>
+    </thead>
+    <tbody>
+        {% for recipient in list.recipients %}
+            <tr>
+                <td>{{ loop.index }}.</td>
+                <td>{{ recipient.mail }}</td>
+                <td>{% if recipient.active %}tak{% else %}nie{% endif %}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<p class="alert alert-info">Brak odbiorców</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+parameters:
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: ~
+    mailer_password: ~
+    locale: en
+    secret: ThisTokenIsNotSoSecretChangeIt
+    debug_toolbar: true
+    debug_redirects: false
+    newsletter_send_key: testkey
+    newsletter_tasks_per_time: 5
+    newsletter_from_mail: 'jakub.elzbieciak@xsolve.pl'
+    newsletter_from_name: 'Jakub Elżbieciak'

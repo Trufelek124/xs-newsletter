@@ -1,0 +1,63 @@
+
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="page-header">
+        <h1>Newsletter</h1>
+    </div>
+
+    <div class="row">
+
+        <div class="span3">
+            <ul class="nav nav-list well" style="padding-top: 8px; padding-bottom: 8px;">
+                <li class="nav-header">Newslettery:</li>
+                <li>
+                    <a href="{{ path('xsolve_newsletter_list_index') }}">
+                        <i class="icon-list"></i> Listy odbiorców
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('xsolve_newsletter_message_index') }}">
+                        <i class="icon-file"></i> Wiadomości
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('xsolve_newsletter_dispatch_index') }}">
+                        <i class="icon-envelope"></i> Wysyłki
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="span9">
+            <div class="row">
+                <div class="span9">
+                    {% for msg in app.session.flashbag.get('ok') %}
+                        <div class="alert alert-success">
+                            <i class="icon-ok"></i> {{ msg }}
+                        </div>
+                    {% endfor %}
+                    {% for msg in app.session.flashbag.get('error') %}
+                        <div class="alert alert-error">{{ msg }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span9">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

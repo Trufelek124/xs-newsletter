@@ -1,0 +1,47 @@
+
+{% extends 'XsolveNewsletterBundle::layout.html.twig' %}
+
+{% block content %}
+
+<h3>Wysyłki:</h3>
+
+<p>
+    <a href="{{ path('xsolve_newsletter_dispatch_new') }}" class="btn">
+        <i class="icon-envelope"></i> Roześlij wiadomość
+    </a>
+</p>
+
+{% if dispatches|length > 0 %}
+
+<table class="table table-condensed table-bordered table-striped">
+    <thead>
+        <th>#</th>
+        <th>Czas rozpoczęcia:</th>
+        <th>Wiadomość:</th>
+        <th>Zaplanowano:</th>
+        <th>Sukces:</th>
+        <th>Porażka:</th>
+    </thead>
+    <tbody>
+        {% for dispatch in dispatches %}
+            <tr>
+                <td>{{ loop.index }}.</td>
+                <td>{{ dispatch.date|date('d.m.Y H:i:s') }}</td>
+                <td><strong>{{ dispatch.message.title }}</strong></td>
+                <td>{{ dispatch.totalTasks }}</td>
+                <td>{{ dispatch.doneTasks }}</td>
+                <td>{{ dispatch.failedTasks }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<p class="alert alert-info">Brak wysyłek</p>
+{% endif %}
+
+<p class="alert alert-info">
+    Prędkość wysyłek to <strong>{{ tasksPerTime }} wiadomości / minuta</strong>.
+</p>
+
+{% endblock %}

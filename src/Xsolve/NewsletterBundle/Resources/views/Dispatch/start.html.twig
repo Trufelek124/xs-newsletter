@@ -1,0 +1,9 @@
+{% extends 'XsolveNewsletterBundle::layout.html.twig' %}
+
+{% block content %}
+
+{% for item in test %}
+{{ item.mail }}
+{% endfor %}
+
+{% endblock %}

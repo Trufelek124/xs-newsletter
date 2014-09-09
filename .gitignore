@@ -1,0 +1,16 @@
+/app/config/parameters.yml
+
+/app/bootstrap.php.cache
+/app/cache
+/app/logs
+
+/db
+/build
+/vendor
+/bin
+/web/bundles
+
+*~
+
+/nbproject
+/.idea

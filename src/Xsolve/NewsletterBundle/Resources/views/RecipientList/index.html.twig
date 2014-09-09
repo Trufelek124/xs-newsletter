@@ -1,0 +1,43 @@
+
+{% extends 'XsolveNewsletterBundle::layout.html.twig' %}
+
+{% block content %}
+
+<h3>Listy odbiorców:</h3>
+
+<p>
+    <a href="{{ path('xsolve_newsletter_list_new') }}" class="btn">
+        <i class="icon-plus-sign"></i> Dodaj nową listę
+    </a>
+</p>
+
+{% if lists|length > 0 %}
+
+<table class="table table-condensed table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nazwa listy:</th>
+            <th>Liczba odbiorców:</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for list in lists %}
+            <tr>
+                <td>{{ loop.index }}.</td>
+                <td>
+                    <strong><a href="{{ path('xsolve_newsletter_list_details', { 'id': list.id }) }}">
+                        {{ list.name }}
+                    </strong></a>
+                </td>
+                <td>{{ list.num }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<p class="alert alert-info">Brak list odbiorców</p>
+{% endif %}
+
+{% endblock %}

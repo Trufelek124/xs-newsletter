@@ -1,0 +1,27 @@
+
+{% extends 'XsolveNewsletterBundle::layout.html.twig' %}
+
+{% form_theme form with 'XsolveNewsletterBundle:Form:bootstrapRow.html.twig' %}
+
+{% block content %}
+
+<h3>Wybór odbiorców:</h3>
+
+<p>Wysyłasz wiadomość "<strong>{{ dispatch.message.title }}</strong>" do odbiorców z listy "<strong>{{ dispatch.list.name }}</strong>". Poniżej możesz odznaczyć adresy mailowe, na które nie chcesz wysyłać tej jednej konkretnej wiadomości.</p>
+
+<form class="form-horizontal" action="{{ path('xsolve_newsletter_dispatch_start', { 'id': dispatch.id }) }}" method="post" {{ form_enctype(form) }}>
+    {{ form_errors(form) }}
+    {{ form_rest(form) }}
+    <div class="form-actions">
+        <input type="submit" class="btn btn-primary" value="Roześlij pod wskazane adresy">
+    </div>
+</form>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    $(function() {
+        $('input[type="checkbox"]').prop('checked', true);
+    });
+</script>
+
+{% endblock %}

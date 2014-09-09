@@ -1,0 +1,67 @@
+xsolve_newsletter_index:
+    pattern: /
+    defaults: { _controller: XsolveNewsletterBundle:RecipientList:index }
+
+xsolve_newsletter_index_named:
+    pattern: /index
+    defaults: { _controller: XsolveNewsletterBundle:RecipientList:index }
+
+xsolve_newsletter_list_index:
+    pattern: /list/index
+    defaults: { _controller: XsolveNewsletterBundle:RecipientList:index }
+
+xsolve_newsletter_list_new:
+    pattern: /list/new
+    defaults: { _controller: XsolveNewsletterBundle:RecipientList:new }
+
+xsolve_newsletter_list_details:
+    pattern: /list/details/{id}
+    defaults: { _controller: XsolveNewsletterBundle:RecipientList:details }
+
+xsolve_newsletter_recipient_new:
+    pattern: /recipient/new/{listId}
+    defaults: { _controller: XsolveNewsletterBundle:Recipient:new }
+
+xsolve_newsletter_message_index:
+    pattern: /message/index
+    defaults: { _controller: XsolveNewsletterBundle:Message:index }
+
+xsolve_newsletter_message_new:
+    pattern: /message/new
+    defaults: { _controller: XsolveNewsletterBundle:Message:new }
+
+xsolve_newsletter_message_edit:
+    pattern: /message/edit/{id}
+    defaults: { _controller: XsolveNewsletterBundle:Message:edit }
+
+xsolve_newsletter_dispatch_index:
+    pattern: /dispatch/index
+    defaults: { _controller: XsolveNewsletterBundle:Dispatch:index }
+
+xsolve_newsletter_dispatch_new:
+    pattern: /dispatch/new
+    defaults: { _controller: XsolveNewsletterBundle:Dispatch:new }
+
+xsolve_newsletter_dispatch_select:
+    pattern: /dispatch/select
+    defaults: { _controller: XsolveNewsletterBundle:Dispatch:select }
+
+xsolve_newsletter_dispatch_start:
+    pattern: /dispatch/start/{id}
+    defaults: { _controller: XsolveNewsletterBundle:Dispatch:start }
+
+xsolve_newsletter_api_subscribe:
+    pattern: /api/subscribe/{listId}
+    defaults: { _controller: XsolveNewsletterBundle:Api:subscribe }
+
+xsolve_newsletter_api_sampleform:
+    pattern: /api/sampleform/{listId}
+    defaults: { _controller: XsolveNewsletterBundle:Api:sampleform }
+
+xsolve_newsletter_api_unsubscribe:
+    pattern: /api/unsubscribe/{mail}/{id}
+    defaults: { _controller: XsolveNewsletterBundle:Api:unsubscribe }
+
+xsolve_newsletter_mailer_send:
+    pattern: /mailer/send/{key}
+    defaults: { _controller: XsolveNewsletterBundle:Mailer:send }

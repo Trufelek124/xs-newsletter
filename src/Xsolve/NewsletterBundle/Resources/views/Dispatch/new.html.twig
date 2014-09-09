@@ -1,0 +1,23 @@
+
+{% extends 'XsolveNewsletterBundle::layout.html.twig' %}
+
+{% form_theme form with 'XsolveNewsletterBundle:Form:bootstrapRow.html.twig' %}
+
+{% block content %}
+
+<h3>Roześlij wiadomość:</h3>
+
+<form class="form-horizontal" action="{{ path('xsolve_newsletter_dispatch_select') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_errors(form) }}
+    {{ form_rest(form) }}
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+            <i class="icon-envelope icon-white"></i> Roześlij
+        </button>
+        <a href="{{ path('xsolve_newsletter_dispatch_index') }}" class="btn btn-small">
+            <i class="icon-circle-arrow-left"></i> Wróć
+        </a>
+    </div>
+</form>
+
+{% endblock %}
